@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 @mark.playlist
 @mark.smoke
-@mark.functionale
+@mark.functional
 def test_001_Obtener_la_lista_de_playlists():
     url = URI_BASE_SPOTIFY
 
