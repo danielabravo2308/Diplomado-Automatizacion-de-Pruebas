@@ -1,0 +1,33 @@
+def test_005_modificar_objeto_sin_headers(get_url, add_object):
+    """Descripcion: El usuario desea adicionar un objeto a la lista"""
+    id_object = add_object["id"]
+    url = f'{get_url}/{Endpoint.OBJECTS.value}/{id_object}'
+    payload = json.dumps({
+        "name": "Apple editadoooooooooo",
+        "data": {
+            "year": 2029,
+            "price": 1849.99,
+            "CPU model": "Intel Core i9",
+            "Hard disk size": "1 TB"
+        }
+    })
+    headers = {'Content-Type': 'application/json'}
+
+    logger.info("domain%s", url)
+    logger.debug("request+headers:PUT  %s %s", url, headers)
+    logger.debug("payload: %s", payload)
+    response = requests.put(url,headers=headers, data=payload)
+    logger.info("status code: %s", response.status_code)
+    logger.debug("response: %s", response.json())
+    assert response.status_code == 200
+
+
+
+
+status_code : INFO
+Timestamp of the request : INFO
+Request - URL - Headers : DEBUG
+Payload(solo cuando falle ) : DEBUG
+Response : DEBUG
+Autentication : DEBUG
+Ip address of domain :INFO
