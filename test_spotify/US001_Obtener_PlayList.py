@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 @mark.smoke
 @mark.functional
 def test_001_Obtener_la_lista_de_playlists():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
 
     # Paso 1: Ingresar Token de Cuenta Personal
     headers = {
@@ -29,7 +29,7 @@ def test_001_Obtener_la_lista_de_playlists():
     list_url = url + "/playlists"
 
     logger.info("domain%s", url)
-    logger.debug("request+headers:PUT  %s %s", url, headers)
+    logger.debug("request+headers:GET  %s %s", url, headers)
 
     # Paso 3: Seleccionar método GET y enviar request
     response = requests.get(list_url, headers=headers)
@@ -52,7 +52,7 @@ def test_001_Obtener_la_lista_de_playlists():
 @mark.functional_negative
 def test_002_token_invalid():
 
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url+"/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ def test_002_token_invalid():
 @mark.playlist
 @mark.functional_positive
 def test_003_token_valid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ def test_003_token_valid():
 @mark.smoke
 @mark.functional
 def test_004_filter_by_Ids():
-  url = URI_BASE_SPOTIFY
+  url = URI_BASE_SPOTIFY+"/v1/users"
   list_url = url + "/playlists"
 
   headers = {
@@ -131,7 +131,7 @@ def test_004_filter_by_Ids():
 @mark.smoke
 @mark.functional
 def test_005_filter_by_query_params_limit():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -155,7 +155,7 @@ def test_005_filter_by_query_params_limit():
 @mark.playlist
 @mark.functional
 def test_006_validate_response_JSON():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + "/playlists"
     headers = {
         "Content-Type": "application/json",

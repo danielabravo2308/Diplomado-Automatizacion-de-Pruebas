@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 @mark.playlist
 @mark.functional_positive
 def test_001_payload_input_valid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url +f"/{ID_USER}"+"/playlists"
 
     headers = {
@@ -51,7 +51,7 @@ def test_001_payload_input_valid():
 @mark.playlist
 @mark.functional_negative
 def test_002_payload_input_invalid():
-  url = URI_BASE_SPOTIFY
+  url = URI_BASE_SPOTIFY+"/v1/users"
   list_url = url + f"/{ID_USER}" + "/playlists"
 
   headers = {
@@ -82,7 +82,7 @@ def test_002_payload_input_invalid():
 @mark.playlist
 @mark.functional_negative
 def test_003_token_invalid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
       "Content-Type": "application/json",
@@ -111,7 +111,7 @@ def test_003_token_invalid():
 @mark.playlist
 @mark.functional_positive
 def test_004_token_valid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ def test_004_token_valid():
 @mark.playlist
 @mark.functional_positive
 def test_005_create_playlist_user_valido():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}"+"/playlists"
     headers = {
       "Content-Type": "application/json",
@@ -167,7 +167,7 @@ def test_005_create_playlist_user_valido():
 @mark.playlist
 @mark.functional_negative
 def test_006_create_playlist_user_invalid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER_INVALID}"+"/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -195,7 +195,7 @@ def test_006_create_playlist_user_invalid():
 @mark.playlist
 @mark.functional_positive
 def test_007_create_playlist_campos_required():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -247,7 +247,7 @@ def test_007_create_playlist_campos_required():
 @mark.playlist
 @mark.functional_negative
 def test_008_create_playlist_campos_not_required():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -330,7 +330,7 @@ def test_008_create_playlist_campos_not_required():
 @mark.playlist
 @mark.functional_negative
 def test_0010_input_name_invalid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -362,7 +362,7 @@ def test_0010_input_name_invalid():
 @mark.playlist
 @mark.functional_negative
 def test_0011_input_description_invalid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}"+ "/playlists"
     headers = {
         "Content-Type": "application/json",
@@ -394,7 +394,7 @@ def test_0011_input_description_invalid():
 @pytest.mark.xfail(reason="La app permite letras en el public BUG002",run=True)
 #""" TC009:  Verificar  si valida las entradas del payload de entrada en el campo public que es un boolean y se ingresa cadena"""
 def test_009_input_public_invalid():
-    url = URI_BASE_SPOTIFY
+    url = URI_BASE_SPOTIFY+"/v1/users"
     list_url = url + f"/{ID_USER}" + "/playlists"
     headers = {
         "Content-Type": "application/json",
