@@ -1,10 +1,9 @@
 import jsonschema
-
-from pytest import mark
 import requests
 import logging
 import pytest
 
+from pytest import mark
 from VariableGlobal import URI_BASE_SPOTIFY, ID_PLAYLIST, ID_PLAYLIST_INVALID, TOKEN_SPOTIFY, TOKEN_SPOTIFY_INVALID
 
 logging.basicConfig(
@@ -47,7 +46,7 @@ def test_002_get_playlist_by_id_not_found():
     list_url = f"{URI_BASE_SPOTIFY}/v1/playlists/{ID_PLAYLIST_INVALID}"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {TOKEN_SPOTIFY}"
+        "Authorization": f"Bearer{TOKEN_SPOTIFY}"
     }
     logger.info("domain %s", list_url)
     logger.debug("request+headers:GET  %s %s", list_url, headers)

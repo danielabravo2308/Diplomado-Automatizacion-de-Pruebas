@@ -28,7 +28,7 @@ def test_001_delete_playlist_by_id_and_body_valid():
     payload_input = {
         "tracks": [
             {
-                "uri": f"spotify:track:{ID_PLAYLIST}",
+                "uri": f"spotify:track:{ID_PLAYLIST}"
 
             }
         ]
